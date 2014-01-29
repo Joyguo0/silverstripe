@@ -15,3 +15,4 @@ $databaseConfig = array(
 
 // Set the site locale
 i18n::set_locale('zh_CN');
+Director::set_environment_type("dev");
