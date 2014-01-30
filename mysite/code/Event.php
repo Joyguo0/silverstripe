@@ -4,6 +4,17 @@ class Event extends Page {
 			'StartTime' => 'Date',
 			'EndTime' => 'Date',
 	);
+	private static $searchable_fields = array(
+			'Title',
+			'StartTime',
+			'EndTime'
+	);
+	private static $summary_fields = array(
+			'Title' => 'Title',
+			'StartTime' => 'StartTime',
+			'EndTime' => 'EndTime',
+	);
+	
 	public function getCMSFields() {
 		
 		$fields = parent::getCMSFields();
