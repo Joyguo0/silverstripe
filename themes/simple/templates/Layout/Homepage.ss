@@ -3,29 +3,57 @@
 <% require css("themes/simple/css/bjqs.css") %>
 <% require css("themes/simple/css/demo.css") %>
 
- 
-  <div id="banner-fade">
-    <ul class="bjqs">
-    <% if RotateImages %> 
-	     <% loop RotateImages %> 
-			<li>$Tag </li>
-	     <% end_loop %> 
-	 <% end_if %> 
-    </ul>
-  </div>
-  
-<script class="secret-source">
-        jQuery(document).ready(function($) {
-          $('#banner-fade').bjqs({
-            height      : 320,
-            width       : 620,
-            responsive  : true
-          });
-    });
-</script>
-
-<div id="BrowserPoll">
-    <h2>Browser Poll</h2>
-    $BrowserPollForm
+<div class="content-container unit size3of4 lastUnit">
+	<article>
+		<div class="content">
+		
+			<div id="BrowserPoll">
+			    <h2>Browser Poll</h2>
+			    <% if $BrowserPollForm %>
+			        $BrowserPollForm
+			    <% else %>
+			    <ul>
+			        <% loop $BrowserPollResults %>
+			        <li>
+			            <div class="browser">$Browser: $Percentage%</div>
+			            <div class="bar" style="width:$Percentage%">&nbsp;</div>
+			        </li>
+			        <% end_loop %>
+			    </ul>
+			    <% end_if %>
+			</div>
+			
+			<div id="Banner">
+			  <img src="http://www.silverstripe.org/themes/silverstripe/images/sslogo.png" alt="Homepage image" />
+			</div>
+			
+			<% loop $LatestNews %>
+			    <% include ArticleTeaser %>
+			<% end_loop %>
+			
+			  <div id="banner-fade">
+			    <ul class="bjqs">
+			    <% if RotateImages %> 
+				     <% loop RotateImages %> 
+						<li>$Tag </li>
+				     <% end_loop %> 
+				 <% end_if %> 
+			    </ul>
+			  </div>
+			  
+			<script class="secret-source">
+			        jQuery(document).ready(function($) {
+			          $('#banner-fade').bjqs({
+			            height      : 320,
+			            width       : 620,
+			            responsive  : true
+			          });
+			    });
+			</script>
+			
+			
+		</div>
+	</article>
+		$Form
+		$PageComments
 </div>
-<div class="content">$Content</div>

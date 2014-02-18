@@ -9,10 +9,10 @@ $databaseConfig = array(
 	"server" => 'localhost',
 	"username" => 'root',
 	"password" => 'root123',
-	"database" => 'ss_mysite',
+	"database" => 'SS_site',
 	"path" => '',
 );
 
 // Set the site locale
-i18n::set_locale('zh_CN');
-Director::set_environment_type("dev");
+i18n::set_locale('en_US');
+FulltextSearchable::enable();
